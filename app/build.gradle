@@ -7,11 +7,12 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.myplayerapp"
-        minSdk 21
-        targetSdk 30
+        minSdkVersion 22
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -31,6 +32,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders.usesCleartextTraffic = false
+            buildConfigField "String", "BASE_URL", '"https://nmedia.herokuapp.com"'
+        }
+        debug {
+            manifestPlaceholders.usesCleartextTraffic = true
+            buildConfigField "String", "BASE_URL", '"http://10.0.2.2:9999"'
+        }
+    }
 }
 
 dependencies {
@@ -47,6 +65,7 @@ dependencies {
     def mdc_version = "1.4.0"
 
     def hilt_work_version = "1.0.0"
+    def okhttplogging_version = "4.9.1"
 
     implementation "androidx.core:core-ktx:$core_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
@@ -61,6 +80,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     implementation "androidx.hilt:hilt-work:$hilt_work_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttplogging_version"
 
     implementation "androidx.legacy:legacy-support-v4:$legacySupport4"
     testImplementation "junit:junit:$junit_version"
