@@ -1,5 +1,5 @@
 package com.example.myplayerapp.dto
 
-data class Song (
+data class Track (
     val id: String,
-    val link: String)
+    val file: String)
