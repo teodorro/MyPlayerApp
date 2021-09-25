@@ -7,19 +7,19 @@
     android:orientation="horizontal">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/state"
+        android:id="@+id/stateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/common_half_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:icon="@drawable/ic_baseline_pause_circle_filled_32"
+        app:icon="@drawable/ic_baseline_play_circle_filled_32"
         style="@style/Widget.AppTheme.IconButton"
         />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/songName"
-        android:layout_width="0dp"
+        android:id="@+id/trackName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:ellipsize="end"
@@ -28,13 +28,12 @@
         android:paddingTop="@dimen/common_spacing"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="@dimen/text_size_medium"
-        app:layout_constraintLeft_toRightOf="@+id/state"
-        app:layout_constraintRight_toLeftOf="@+id/albumName"
+        app:layout_constraintLeft_toRightOf="@+id/stateButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/albumName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:ellipsize="end"
@@ -43,7 +42,7 @@
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="@dimen/text_size_medium"
         android:textColor="@color/gray"
-        app:layout_constraintLeft_toRightOf="@+id/songName"
+        app:layout_constraintLeft_toRightOf="@+id/trackName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView

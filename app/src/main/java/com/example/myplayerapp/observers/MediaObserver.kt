@@ -7,6 +7,8 @@ import androidx.lifecycle.OnLifecycleEvent
 
 class MediaLifecycleObserver : LifecycleObserver{
     var player: MediaPlayer? = MediaPlayer()
+    var currentUrl: String = ""
+
 
     fun play() {
         player?.setOnPreparedListener {
@@ -23,6 +25,7 @@ class MediaLifecycleObserver : LifecycleObserver{
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onStop(){
         player?.stop()
+        player?.reset()
     }
 
 }

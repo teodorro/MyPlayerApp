@@ -5,15 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.myplayerapp.databinding.TrackItemBinding
 import com.example.myplayerapp.dto.Track
+import com.example.myplayerapp.observers.MediaLifecycleObserver
 
-class TrackAdapter : ListAdapter<Track, TrackViewHolder>(TrackDiffCallback()) {
+class TrackAdapter(private val mediaObserver: MediaLifecycleObserver)
+    : ListAdapter<Track, TrackViewHolder>(TrackDiffCallback()) {
+
+    var currentTrackBinding: TrackItemBinding? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackViewHolder {
         val binding = TrackItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TrackViewHolder(binding)
+        return TrackViewHolder(mediaObserver, binding, this)
     }
 
     override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {
-        val post = getItem(position)
-        holder.bind(post)
+        val track = getItem(position)
+        holder.bind(track)
     }
 }
