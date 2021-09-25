@@ -10,11 +10,9 @@ import com.example.myplayerapp.observers.MediaLifecycleObserver
 class TrackAdapter(private val mediaObserver: MediaLifecycleObserver)
     : ListAdapter<Track, TrackViewHolder>(TrackDiffCallback()) {
 
-    var currentTrackBinding: TrackItemBinding? = null
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackViewHolder {
         val binding = TrackItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TrackViewHolder(mediaObserver, binding, this)
+        return TrackViewHolder(mediaObserver, binding)
     }
 
     override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {

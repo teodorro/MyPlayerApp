@@ -25,25 +25,15 @@ class MainViewModel @Inject constructor()
     : ViewModel() {
 
     private val client = OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).build()
-    private val gson = Gson()
-    private val typeToken = object : TypeToken<List<Track>>() {}
 
     companion object {
-        //        const val BASE_URL = "http://https://www.soundhelix.com/audio-examples/mp3/"
         const val BASE_URL =
             "https://raw.githubusercontent.com/netology-code/andad-homeworks/master/09_multimedia/data/"
-        val jsonType = "application/json".toMediaType()
     }
 
     val data: MutableLiveData<FeedModel> by lazy {
         MutableLiveData<FeedModel>()
     }
-//        = repository.data.map { tracks ->
-//            FeedModel(
-//                tracks.map { it.copy() },
-//                tracks.isEmpty()
-//            )
-//        }.asLiveData()
 
     init {
         loadTracks()

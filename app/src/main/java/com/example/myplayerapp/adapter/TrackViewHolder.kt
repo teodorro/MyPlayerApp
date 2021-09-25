@@ -16,7 +16,6 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 class TrackViewHolder(
     private val mediaObserver: MediaLifecycleObserver,
     private val binding: TrackItemBinding,
-    private val adapter: TrackAdapter
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(track: Track) {
         binding.apply {
@@ -24,37 +23,37 @@ class TrackViewHolder(
             stateButton.setOnClickListener {
                 val url = "${MainViewModel.BASE_URL}${track.file}"
 
-                var a = adapter.currentTrackBinding
+//                var a = adapter.currentTrackBinding
                 var b = mediaObserver.currentUrl
                 var c = mediaObserver
                 var d = mediaObserver.player
 
-
                 if (mediaObserver.currentUrl.isNotBlank() && mediaObserver.currentUrl != url) {
                     mediaObserver.onStop()
-                    adapter.currentTrackBinding!!.stateButton.icon = getDrawable(
-                        binding.root.context,
-                        R.drawable.ic_baseline_play_circle_filled_32
-                    )
                 }
 
                 if (mediaObserver.player == null || mediaObserver.player?.isPlaying!!) {
                     mediaObserver?.onPause()
-                    stateButton.icon = getDrawable(
-                        binding.root.context,
-                        R.drawable.ic_baseline_play_circle_filled_32
-                    )
                 } else {
-                    mediaObserver.apply {
-                        if (currentUrl != url || currentUrl.isBlank())
+                    if (mediaObserver.currentUrl != url) {
+                        mediaObserver.apply {
                             player?.setDataSource(url)
-                    }.play()
-                    stateButton.icon = getDrawable(
-                        binding.root.context,
-                        R.drawable.ic_baseline_pause_circle_filled_32
-                    )
-                    mediaObserver.currentUrl = url
-                    adapter.currentTrackBinding = binding
+                            player?.prepare()
+                            currentUrl = url
+                            trackButton = stateButton
+                        }.play()
+                    } else
+                        mediaObserver.play()
+                }
+            }
+
+            val url = "${MainViewModel.BASE_URL}${track.file}"
+            if (mediaObserver.currentUrl.isBlank()) {
+                mediaObserver.apply {
+                    player?.setDataSource(url)
+                    player?.prepare()
+                    trackButton = stateButton
+                    currentUrl = url
                 }
             }
         }
