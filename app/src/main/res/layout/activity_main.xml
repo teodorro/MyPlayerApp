@@ -15,13 +15,13 @@
         >
 
         <TextView
-            android:id="@+id/titleLabel"
+            android:id="@+id/albumLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/title"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +34,53 @@
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleLabel" />
+            app:layout_constraintTop_toBottomOf="@id/albumLabel" />
+
+        <TextView
+            android:id="@+id/artistLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/artist"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumTitle" />
+
+        <TextView
+            android:id="@+id/artist_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:text="Metallica"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/artistLabel"
+            app:layout_constraintTop_toBottomOf="@id/albumTitle" />
+
+        <TextView
+            android:id="@+id/publishedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/published"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
+
+        <TextView
+            android:id="@+id/genreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/genre"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/publishedTextView"
+            app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

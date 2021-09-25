@@ -5,9 +5,9 @@
     <string name="play">play</string>
     <string name="pause">pause</string>
     <string name="id">id</string>
-    <string name="title">title</string>
+    <string name="title">ALBUM</string>
     <string name="subtitle">subtitle</string>
-    <string name="artist">artist</string>
+    <string name="artist">Artist:</string>
     <string name="published">published</string>
     <string name="genre">genre</string>
     <string name="track">track</string>
