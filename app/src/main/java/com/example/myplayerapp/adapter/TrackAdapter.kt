@@ -19,4 +19,8 @@ class TrackAdapter(private val mediaObserver: MediaLifecycleObserver)
         val track = getItem(position)
         holder.bind(track)
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return position;
+    }
 }
