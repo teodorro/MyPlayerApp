@@ -7,10 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.myplayerapp.dto.Album
 import com.example.myplayerapp.dto.Track
 import com.example.myplayerapp.model.FeedModel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
