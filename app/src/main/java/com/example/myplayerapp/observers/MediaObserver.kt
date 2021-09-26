@@ -15,13 +15,11 @@ class MediaLifecycleObserver(private val context: Context) : LifecycleObserver {
     var bigButton: MaterialButton? = null
     var trackButton: MaterialButton? = null
 
-
     fun play() {
 //        player?.setOnPreparedListener {
 //            it.start()
 //        }
 //        player?.prepareAsync()
-
 
         player?.start()
         trackButton?.icon = AppCompatResources.getDrawable(

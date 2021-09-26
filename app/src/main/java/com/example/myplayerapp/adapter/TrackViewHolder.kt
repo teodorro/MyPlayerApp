@@ -23,11 +23,6 @@ class TrackViewHolder(
             stateButton.setOnClickListener {
                 val url = "${MainViewModel.BASE_URL}${track.file}"
 
-//                var a = adapter.currentTrackBinding
-                var b = mediaObserver.currentUrl
-                var c = mediaObserver
-                var d = mediaObserver.player
-
                 if (mediaObserver.currentUrl.isNotBlank() && mediaObserver.currentUrl != url) {
                     mediaObserver.onStop()
                 }
